@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "driver-monitoring-system",
+    "disc": "01",
+    "title": "Driver Monitoring System",
+    "blurb": "Real-time driver monitoring on a Raspberry Pi. Split into two processes over ZeroMQ so camera capture never blocks on inference latency. Detects phone use and eye closure, locks onto a single tracked driver, and scores risk from gaze duration, phone presence, and PERCLOS. I dropped the torch runtime in favor of raw ncnn to save roughly 150MB and eliminate a crash class specific to the Pi 4B.",
+    "stack": ["Python", "YOLO26s via ncnn", "MediaPipe", "ZeroMQ", "Raspberry Pi"],
+    "repo": "https://github.com/shahxsheel/fantastic-octo-enigma",
+    "live": null,
+    "rotation": -2.1,
+    "body": "content/projects/driver-monitoring-system.md"
+  },
+  {
+    "slug": "cura",
+    "disc": "02",
+    "title": "cura",
+    "blurb": "A robotic feeding assistant for hospital patients. Drives a Piper arm over CAN to deliver a water bottle, coordinated by a FastAPI state machine with a hard emergency stop. The arm's SDK assumes Linux, so I built the macOS CAN path from scratch with gs_usb and SLCAN, then found and fixed a reconnect failure and a segfault in it. Also built the vision to arm bridge.",
+    "stack": ["Python", "FastAPI", "Piper SDK", "CAN bus", "OpenCV"],
+    "repo": "https://github.com/shahxsheel/cura",
+    "live": null,
+    "rotation": 1.4,
+    "body": "content/projects/cura.md"
+  },
+  {
+    "slug": "accordion",
+    "disc": "03",
+    "title": "Accordion",
+    "blurb": "Context window management for AI coding agents: fold, unfold, and pin any part of an agent's context without ever deleting it. I built a WebSocket based conductor, an alternative automatic folding strategy, then returned later to ship the system prompt as a first class, non foldable dial: capture hook, token accounting, wire protocol bump, new UI panel, 746 tests passing. Also built the Windows release installer workflow.",
+    "stack": ["TypeScript", "Svelte", "Rust (Tauri)", "open source"],
+    "repo": "https://github.com/a-Fig/Accordion",
+    "live": null,
+    "rotation": -0.8,
+    "body": "content/projects/accordion.md"
+  },
+  {
+    "slug": "signal",
+    "disc": "04",
+    "title": "SIGNAL",
+    "blurb": "Human in the loop dispatch software for wildfire surge events. Four agents triage calls, route the nearest unit, and voice a briefing, under a strict rule that AI never speaks to a caller directly. I built the entire real-time dashboard: auto-reconnecting WebSocket state over eight message types, a Leaflet map with live fire perimeter, override and hold gates, plus live call transcription and a phone-in voice agent.",
+    "stack": ["React", "TypeScript", "FastAPI", "WebSocket", "Claude Haiku", "ElevenLabs"],
+    "repo": "https://github.com/aadityad12/Clear-Dispatch",
+    "live": null,
+    "rotation": 2.3,
+    "body": "content/projects/signal.md"
+  }
+]

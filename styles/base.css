@@ -1,0 +1,114 @@
+/* base.css — reset, self-hosted fonts, global grain, root surfaces.
+   No raw design values here; everything references tokens.css. */
+
+/* --- Self-hosted fonts (DESIGN.md §4.2, §11). Missing files fall back to the
+   system face in the tokens.css stack, so absence never breaks the site. --- */
+@font-face {
+  font-family: "Archivo";
+  src: url("../assets/fonts/archivo-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/jetbrains-mono.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("../assets/fonts/permanent-marker.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+/* --- Y2K interaction cursor (DESIGN.md §6.2) --- */
+a,
+button,
+[role="button"] {
+  cursor: var(--cursor-link, pointer);
+}
+input,
+textarea,
+[contenteditable="true"] { cursor: text; }
+html.cursor-busy,
+html.cursor-busy * { cursor: var(--cursor-busy, wait) !important; }
+
+/* --- Root surfaces (DESIGN.md §5.1: pure black lets the plate vignette bleed) --- */
+html, body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  line-height: var(--leading-body);
+  cursor: var(--cursor-default, default);
+}
+
+/* --- Invert (DESIGN.md §6). Applied on <html> so the whole photograph inverts. --- */
+html.invert { filter: invert(1); }
+
+/* --- Focus ring (DESIGN.md §10) --- */
+:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+/* --- Global grain overlay (DESIGN.md §4.4). Fixed, non-interactive, above
+   everything. Inline feTurbulence data URI — no image file. Must stay outside
+   any transformed wrapper. --- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-size: var(--grain-size) var(--grain-size);
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'>\
+<filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/></filter>\
+<rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* --- Wandering star + temporary difference-blend trail (DESIGN.md §6.1) --- */
+.star-trail,
+.wandering-star {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.star-trail {
+  width: 100%;
+  height: 100%;
+  z-index: 9100;
+  mix-blend-mode: difference;
+}
+.wandering-star {
+  width: clamp(48px, 5vw, 80px);
+  height: auto;
+  z-index: 9101;
+  opacity: 0;
+  filter: var(--img-filter);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

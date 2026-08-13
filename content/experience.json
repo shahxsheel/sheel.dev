@@ -1,0 +1,38 @@
+[
+  {
+    "company": "Infineon Special Project (ARGUS)",
+    "role": "Research Intern",
+    "period": "Winter 2026",
+    "location": "De Anza College Engineering",
+    "bullets": [
+      "Selected from a pool of 300+ CS students into a 5 person research team building a driver safety system.",
+      "Owned inference: implemented and tuned the YOLO object detection and MediaPipe eye tracking pipeline running on Raspberry Pi.",
+      "Only De Anza team cleared to present at STEM Zone 2026, Santa Clara Convention Center."
+    ],
+    "body": null
+  },
+  {
+    "company": "De Anza College",
+    "role": "Teaching Assistant, Math and Computer Science",
+    "period": "Fall 2025 - Spring 2026",
+    "location": "",
+    "bullets": [
+      "Supported intro and intermediate C++, data structures and algorithms, and Calculus 1 through 3.",
+      "Re-taught missed material one on one for students who fell behind mid-quarter.",
+      "Tracked attendance and followed up individually to keep students from quietly dropping."
+    ],
+    "body": null
+  },
+  {
+    "company": "De Anza College",
+    "role": "Finance Intern, Student Government",
+    "period": "Winter 2025 - Fall 2025",
+    "location": "",
+    "bullets": [
+      "Built the full presentation for the FY2025-26 budget submitted to the FHDA district board.",
+      "Ran an independent campus survey of 100+ students on program participation.",
+      "Presented the findings back to the Student Government finance team."
+    ],
+    "body": null
+  }
+]
