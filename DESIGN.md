@@ -139,7 +139,7 @@ The scene lives in one aspect-locked container. Everything on the table is posit
   <div class="grain">
 ```
 
-**Stage and plate are two boxes, and the split matters.** `#stage` is the frame the viewport sees; `.plate` is the photograph inside it. On desktop they are the same size, so the distinction is invisible. On mobile the stage grows to `100svh` and the plate sits on its floor — which only works because **chrome positions against the stage and objects position against the plate**. Chrome then tracks the viewport corners while objects stay pinned to the table, with no coordinate drift. Collapsing these back into one element re-breaks that.
+**Stage and plate are two boxes, and the split matters.** `#stage` is the frame the viewport sees; `.plate` is the photograph inside it. The stage is at least `100svh` tall and the plate sits on its floor at every viewport size, so any aspect-ratio letterboxing becomes black sky above the table rather than a dead border below it. **Chrome positions against the stage and objects position against the plate**. Chrome therefore tracks the viewport corners while objects stay pinned to the table, with no coordinate drift. Collapsing these back into one element re-breaks that.
 `.plate` must stay a positioned element: it is the objects' `offsetParent`, which is what debug mode measures against (§5.3).
 
 Object positioning contract — every object uses these five custom properties, and nothing else:
