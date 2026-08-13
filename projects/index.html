@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Sheel Shah</title>
+  <meta name="description" content="Four projects from Sheel Shah. The rest is on GitHub.">
+  <link rel="canonical" href="https://sheel.dev/projects/">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <meta name="theme-color" content="#000000">
+  <script>
+    (function () { try { if (localStorage.getItem("sheel.invert") === "1") document.documentElement.classList.add("invert"); } catch (e) {} })();
+  </script>
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/stage.css">
+  <link rel="stylesheet" href="../styles/pages.css">
+</head>
+<body>
+  <article class="page">
+    <a class="page__back" href="../">&#8592; back to the table</a>
+    <p class="meta">Projects</p>
+    <h1>Four things I built.</h1>
+    <p class="page__intro">Four of them. The rest, including the ones that didn't work, are on
+      <a class="inline" href="https://github.com/shahxsheel">GitHub</a>.</p>
+
+    <div class="projects" id="projects">
+      <noscript>
+        <p>This page lists projects. With JavaScript off, browse them on
+          <a class="inline" href="https://github.com/shahxsheel">GitHub</a>.</p>
+      </noscript>
+    </div>
+
+    <hr class="rule">
+    <a class="gh-link" href="https://github.com/shahxsheel">Everything else on GitHub &#8599;</a>
+  </article>
+
+  <div class="grain" aria-hidden="true"></div>
+  <script src="../scripts/invert.js" defer></script>
+  <script src="../scripts/cursor-ani.js" defer></script>
+  <script src="../scripts/star-trail.js" defer></script>
+  <script>
+    (function () {
+      "use strict";
+      var host = document.getElementById("projects");
+      fetch("../content/projects.json")
+        .then(function (r) { return r.json(); })
+        .then(function (rows) {
+          host.innerHTML = rows.slice(0, 4).map(function (p) {
+            var stack = (p.stack || []).join(" &middot; ");
+            return '<article class="project-card">' +
+              '<div class="project-card__head">' +
+                '<span class="project-card__disc">' + esc(p.disc) + '</span>' +
+                '<a class="project-card__title" href="' + esc(p.slug) + '/">' + esc(p.title) + '</a>' +
+              '</div>' +
+              '<p class="project-card__blurb">' + esc(p.blurb) + '</p>' +
+              '<p class="project-card__stack">' + stack + '</p>' +
+              '<a class="project-card__repo" href="' + esc(p.repo) + '">' + esc(p.repo.replace(/^https?:\/\//, "")) + ' &#8599;</a>' +
+            '</article>';
+          }).join("");
+        })
+        .catch(function () {
+          host.innerHTML = '<p>Could not load projects. Try <a class="inline" href="https://github.com/shahxsheel">GitHub</a>.</p>';
+        });
+      function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
+    })();
+  </script>
+</body>
+</html>
