@@ -359,7 +359,7 @@ Static HTML, CSS with custom properties, vanilla JS. Real folders for real URLs.
 
 Production CSS references carry a deployment version query. The custom domain is proxied through Cloudflare, which caches unversioned stylesheets for hours; bump the version whenever a stylesheet changes so visitors do not receive a mixed HTML/CSS deployment.
 
-The favicon uses a centered crop of the sparkle asset with a 2px safety inset. Version its URL whenever the icon changes because browsers cache favicons particularly aggressively.
+The favicon uses the downloaded chrome pixel star on black, cropped to fill a 64px square with a 2px safety inset. Version its URL whenever the icon changes because browsers cache favicons particularly aggressively.
 
 ```
 /
