@@ -9,9 +9,13 @@
   position: relative;
   width: 100%;
   max-width: var(--stage-max);
+  min-height: 100vh;
+  min-height: 100svh;
   margin-inline: auto;
   background-color: var(--black);
   overflow: hidden;
+  display: flex;
+  align-items: flex-end;
   cursor: var(--cursor-default, default);
 }
 .plate {
@@ -294,14 +298,11 @@ body.debug .debug-readout { display: block; }
   }
 }
 
-/* Table on the floor, black sky above (DESIGN.md §9). Portrait only: a
-   landscape phone is shorter than the plate is tall, and bottom-anchoring
-   there would push the top of the table off-screen. */
+/* Lock portrait phones to the visible viewport so mobile browser chrome does
+   not create a scrollable sliver below the bottom-anchored plate. */
 @media (max-width: 767px) and (orientation: portrait) {
   #stage {
     height: 100vh;
     height: 100svh; /* excludes mobile browser chrome, so nothing scrolls */
-    display: flex;
-    align-items: flex-end;
   }
 }
