@@ -357,6 +357,8 @@ Also hard-reload after replacing an image: a cached broken asset looks identical
 Deliberately boring. **No framework, no build step, no CMS, no dependencies.**
 Static HTML, CSS with custom properties, vanilla JS. Real folders for real URLs. Deploys to Vercel/Netlify/GitHub Pages with zero configuration.
 
+Production CSS references carry a deployment version query. The custom domain is proxied through Cloudflare, which caches unversioned stylesheets for hours; bump the version whenever a stylesheet changes so visitors do not receive a mixed HTML/CSS deployment.
+
 ```
 /
 ├── index.html
