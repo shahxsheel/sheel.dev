@@ -25,7 +25,7 @@ These survive every redesign. Nothing below may compromise them.
 - Mobile fallback
 - Deployed to the real domain
 ### Explicitly NOT in v1
-Binder open animation, magazine page-flip, parallax, GitHub API integration, additional clickable objects, custom handwriting font, sound.
+Binder open animation, magazine page-flip, parallax, GitHub API integration, additional clickable objects, custom handwriting font.
 Everything cut goes in `later.md` with a one-line note. Do not build ahead.
 ---
 ## 4. Aesthetic constants
@@ -245,6 +245,8 @@ Use the supplied Desaparezco Windows animated-cursor family: `Desaparezco.ani` f
 Browsers do not reliably support `.ani`, particularly on macOS, so each file's four embedded `32×32` frames is extracted to PNG. `/scripts/cursor-ani.js` reproduces the authored `0,1,2,3,2,1` ping-pong sequence at `167ms` per step. Hotspots are `0 0` for the arrow, `11 0` for the hand's fingertip, and `16 16` for the hourglass. Standard `default`, `pointer`, and `wait` cursors remain as fallbacks. Reduced-motion mode holds all three cursors on frame `0`.
 
 Unmodified primary clicks on same-tab navigation links are deliberately held for `500ms`: the current page remains visible with the animated busy cursor, then navigation continues. Modifier clicks, downloads, new-tab links, and same-page anchors retain normal browser behavior. Buttons perform their action immediately but show the busy cursor for the same `500ms` feedback window.
+
+Primary mouse clicks play `/assets/audio/mouse-click.mp3` immediately at `0.45` volume. Three preloaded audio voices rotate so rapid clicks can overlap without cutting each other off. Keyboard-initiated activation stays silent. The sound does not change or extend the existing `500ms` navigation delay.
 
 Interior prose uses the Desaparezco arrow, while selectable or editable text keeps the native text caret. Every custom cursor declaration ends with a standard cursor fallback.
 ---

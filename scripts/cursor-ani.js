@@ -8,13 +8,18 @@
 
   var sequence = [0, 1, 2, 3, 2, 1];
   var BUSY_DELAY = 500;
+  var CLICK_VOLUME = 0.45;
+  var CLICK_VOICES = 3;
   var sequenceIndex = 0;
+  var clickVoiceIndex = 0;
   var animationTimer = 0;
   var busyResetTimer = 0;
   var pendingNavigation = 0;
   var root = document.documentElement;
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var baseUrl = new URL("../assets/cursors/", sourceScript.src);
+  var clickSoundUrl = new URL("../assets/audio/mouse-click.mp3?v=20260813-1", sourceScript.src);
+  var clickVoices = [];
   var states = {
     default: { hotspot: "0 0", fallback: "default" },
     link: { hotspot: "11 0", fallback: "pointer" },
@@ -40,6 +45,23 @@
         image.src = frameUrl(state, frame);
       }
     });
+
+    for (var voice = 0; voice < CLICK_VOICES; voice += 1) {
+      var audio = new Audio(clickSoundUrl.href);
+      audio.preload = "auto";
+      audio.volume = CLICK_VOLUME;
+      clickVoices.push(audio);
+    }
+  }
+
+  function playClickSound(event) {
+    if (event.button !== 0 || event.detail === 0) return;
+    var voice = clickVoices[clickVoiceIndex];
+    if (!voice) return;
+    clickVoiceIndex = (clickVoiceIndex + 1) % clickVoices.length;
+    voice.currentTime = 0;
+    var playback = voice.play();
+    if (playback && typeof playback.catch === "function") playback.catch(function () {});
   }
 
   function beginBusy() {
@@ -78,6 +100,8 @@
     if (reducedMotion.matches) stopAnimation();
     else startAnimation();
   });
+
+  document.addEventListener("click", playClickSound, true);
 
   document.addEventListener("click", function (event) {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
