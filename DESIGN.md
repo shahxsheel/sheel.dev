@@ -158,7 +158,7 @@ Object positioning contract — every object uses these five custom properties, 
 }
 ```
 
-`--ar` is the object's footprint on the table, added in v1. Width alone gives a hotspot no height, and a fixed ratio for every object is wrong once the objects differ (a magazine is not a CD binder). In v2 the art's natural ratio takes over; keeping `--ar` reserves the box and prevents layout shift while the image loads.
+`--ar` is the object's footprint on the table, added in v1. Width alone gives a hotspot no height, and a fixed ratio for every object is wrong once the objects differ (a magazine is not a notebook). In v2 the art's natural ratio takes over; keeping `--ar` reserves the box and prevents layout shift while the image loads.
 
 **Plate edge falloff.** `#stage::after` lays four linear-gradients over the plate's outer `--plate-falloff` (3%) so the photograph resolves to `--black` on every side, then bleeds into the page. It sits at `z-index: 5` — below objects (10) and chrome (20) — so neither is dimmed. Without it, letterboxing at any viewport that isn't exactly 16:9 exposes a hard grey rectangle (see §4.1).
 
@@ -168,8 +168,8 @@ Both objects have shipped as real art, alpha-cut, AVIF + WebP:
 | Art | Source | AVIF | WebP |
 |---|---|---|---|
 | `magazine.*` | 1024×1262 | 101 KB | 191 KB |
-| `binder-closed.*` | 1000×987 | 116 KB | 252 KB |
-The binder was downscaled from 1243px to 1000px: it renders ~480 CSS px at the 1920 stage cap, so 1000px still covers 2× displays, and the full-size export cost 528 KB of WebP for detail no one can see. **Size object art to ~2× its rendered width, not to whatever the export gives you.**
+| `binder-closed.*` | 1000×1030 | 111 KB | 245 KB |
+The notebook was downscaled from 1189px to 1000px: it renders ~480 CSS px at the 1920 stage cap, so 1000px still covers 2× displays. **Size object art to ~2× its rendered width, not to whatever the export gives you.**
 The rules, applied to both:
 - **Add `.object--art`.** It drops the hairline, the wash and the box-shadow, leaving exactly what §4.6 specifies: lift plus a deeper shadow. A hairline rectangle drawn around a cut-out magazine reads as a rendering bug.
 - **Delete the `.object__label`.** The cover already says *Work Experience*; the label was a stand-in for missing art. The link's `aria-label` carries the accessible name, so the art is decorative.
@@ -182,7 +182,7 @@ Tuned against the real plate in v1. The plate's empty centre runs **x 18–83%, 
 | Object | `--x` | `--y` | `--w` | `--ar` | `--r` | art |
 |---|---|---|---|---|---|---|
 | Magazine | 23% | 18% | 22% | 1024 / 1262 | 0deg | shipped |
-| Binder | 52% | 15% | 27% | 1000 / 987 | 20deg | shipped |
+| Binder | 52% | 15% | 27% | 1000 / 1030 | 20deg | shipped |
 Both `--ar` values are the artwork's own ratio.
 
 **`--r` fights the artwork's baked-in tilt, so it is not the angle you see.** Both images were authored tilted *counter-clockwise* — measurable as the topmost opaque pixel sitting on the right-hand side of the frame — so at `--r: 0` the two objects read as parallel. The binder's `+20deg` first cancels its own tilt and only then leans it clockwise, splaying the pair into a shallow **V**. A value that looks large in the stylesheet can be small on screen; judge it rendered, and check which way a new artwork leans before choosing a number.
@@ -312,7 +312,7 @@ The portrait plate's empty centre is **x 20–95%, y 20–68%** — bounded by t
 | Object | left | top | width | aspect-ratio |
 |---|---|---|---|---|
 | Magazine | 22% | 9% | 40% | 1024 / 1262 |
-| Binder | 45% | 44.5% | 34% | 1000 / 987 |
+| Binder | 45% | 44.5% | 34% | 1000 / 1030 |
 
 **Portrait stacks the objects on a diagonal, not side by side.** Magazine high, binder low, their centres at x 42% and x 62% — just off the horizontal centre on either side, with a 5.1% vertical gap between the boxes.
 Sizes were set by growing each box around its centre until it touched something, then backing off: the ceilings are ~52% for the magazine and 38% for the binder (the binder's limited by the bottom cluster, not by width). Shipped at 40% and 34%, which leaves 3.9% before that cluster and keeps both on bare table (0.15% and 0.04% bright pixels). Side by side stopped working once the binder's 20deg tilt widened its bounding box: the two closed to a 0.3% gap, and narrowing them enough to fit left both objects small on an already narrow plate. The diagonal uses the portrait plate's tall empty middle instead, and both boxes land on bare table (0.1% and 0.0% bright pixels).

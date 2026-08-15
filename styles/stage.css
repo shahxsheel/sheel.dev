@@ -294,7 +294,7 @@ body.debug .debug-readout { display: block; }
     left: 22%; top: 9%; width: 40%; aspect-ratio: 1024 / 1262;
   }
   .object[data-name="binder"] {
-    left: 45%; top: 44.5%; width: 34%; aspect-ratio: 1000 / 987;
+    left: 45%; top: 44.5%; width: 34%; aspect-ratio: 1000 / 1030;
   }
 }
 
