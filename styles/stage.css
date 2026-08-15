@@ -218,10 +218,10 @@
   );
 }
 .object[data-name="binder"] {
-  background-image: url("../assets/objects/binder-closed.webp");
+  background-image: url("../assets/objects/projects-notebook.webp");
   background-image: image-set(
-    url("../assets/objects/binder-closed.avif") type("image/avif"),
-    url("../assets/objects/binder-closed.webp") type("image/webp")
+    url("../assets/objects/projects-notebook.avif") type("image/avif"),
+    url("../assets/objects/projects-notebook.webp") type("image/webp")
   );
 }
 

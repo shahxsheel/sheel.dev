@@ -168,7 +168,7 @@ Both objects have shipped as real art, alpha-cut, AVIF + WebP:
 | Art | Source | AVIF | WebP |
 |---|---|---|---|
 | `magazine.*` | 1024×1262 | 101 KB | 191 KB |
-| `binder-closed.*` | 1000×1030 | 111 KB | 245 KB |
+| `projects-notebook.*` | 1000×1030 | 111 KB | 245 KB |
 The notebook was downscaled from 1189px to 1000px: it renders ~480 CSS px at the 1920 stage cap, so 1000px still covers 2× displays. **Size object art to ~2× its rendered width, not to whatever the export gives you.**
 The rules, applied to both:
 - **Add `.object--art`.** It drops the hairline, the wash and the box-shadow, leaving exactly what §4.6 specifies: lift plus a deeper shadow. A hairline rectangle drawn around a cut-out magazine reads as a rendering bug.
@@ -372,7 +372,7 @@ The favicon uses the downloaded chrome pixel star on black, cropped to fill a 64
 ├── about/index.html
 ├── assets/
 │   ├── plate/table-base.avif|webp
-│   ├── objects/            ← magazine.webp, binder-closed.webp (v2)
+│   ├── objects/            ← magazine.webp, projects-notebook.webp (v2)
 │   └── fonts/
 ├── styles/
 │   ├── tokens.css          ← every value in section 4 lives here, and only here
