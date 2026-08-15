@@ -4,9 +4,10 @@
 /* --- Self-hosted fonts (DESIGN.md §4.2, §11). Missing files fall back to the
    system face in the tokens.css stack, so absence never breaks the site. --- */
 @font-face {
-  font-family: "Archivo";
-  src: url("../assets/fonts/archivo-var.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Bricolage Grotesque";
+  src: url("../assets/fonts/bricolage-grotesque-var.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
   font-display: swap;
   font-style: normal;
 }

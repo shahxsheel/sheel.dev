@@ -50,12 +50,10 @@ Strict monochrome. No color values outside this list, ever. No accent color, no 
 Three faces. No fourth face.
 | Role | Family | Notes |
 |---|---|---|
-| Display / UI | `Archivo` (variable) | Name, nav, headings. Tight tracking. |
+| Display / UI | `Bricolage Grotesque` (variable) | Name and headings. Weight 650–700, tight tracking. |
 | Body / meta | `JetBrains Mono` | Small text, labels, the `>` prefixed lines, dates, captions. |
 | Handwriting | `Permanent Marker` (placeholder) | Disc labels only. Replace with custom font — see 4.3. |
-Self-host all three in `/assets/fonts`. No Google Fonts CDN calls — it's a privacy and reliability tax for three files.
-
-Do not use the Hagrid trial files on the site: the trial fonts inject visible `TRIAL ONLY` watermark glyphs into rendered copy. A future Hagrid switch requires licensed, watermark-free webfont files.
+Self-host all three in `/assets/fonts`. No Google Fonts CDN calls — it's a privacy and reliability tax for three files. Bricolage Grotesque uses the OFL-licensed Latin variable WOFF2 from Google Fonts, with its license retained beside the font asset.
 
 ```css
 --fs-name:   clamp(28px, 2.6vw, 44px);   /* Sheel Shah */

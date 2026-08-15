@@ -29,7 +29,7 @@
 }
 .page h2 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 650;
   font-size: var(--fs-h2);
   letter-spacing: var(--tracking-tight);
   color: var(--white);
@@ -63,7 +63,7 @@
   gap: var(--sp-2);
   margin-bottom: var(--sp-2);
 }
-.entry__role { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h2); color: var(--white); }
+.entry__role { font-family: var(--font-display); font-weight: 650; font-size: var(--fs-h2); color: var(--white); }
 .entry__company { color: var(--soft); }
 .entry__bullets { margin-top: var(--sp-3); }
 .entry__bullets li {
@@ -94,7 +94,7 @@
   color: var(--soft);
   opacity: var(--disc-opacity);
 }
-.project-card__title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h2); color: var(--white); text-decoration: none; }
+.project-card__title { font-family: var(--font-display); font-weight: 650; font-size: var(--fs-h2); color: var(--white); text-decoration: none; }
 .project-card__title:hover { color: var(--soft); }
 .project-card__blurb { color: var(--soft); margin-top: var(--sp-2); }
 .project-card__stack {
