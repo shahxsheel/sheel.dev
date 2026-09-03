@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG card source</title>
+<!--
+  Source for assets/og/og.png -- the 1200x630 social preview card.
+  Rasterise with:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --screenshot=assets/og/og.png --window-size=1200,630 --hide-scrollbars \
+      --virtual-time-budget=6000 file://$PWD/tools/og-card.html
+  Uses the same tokens and art as the live hero so the card and the page match.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #f6f1e6;
+    --ink: #2e2a21;
+    --ink-soft: #4a4437;
+    --muted: #666052;
+    --olive: #4f672c;
+    --gold: #dca23d;
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --mono: "DM Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--display);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Same paper grain the site uses, dialled down for a small render. */
+  body::after {
+    content: "";
+    position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: .12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+  }
+
+  .art { position: absolute; right: -40px; top: -30px; width: 700px; z-index: 1; }
+  .art img { display: block; width: 100%; height: auto; }
+  .cursor { position: absolute; left: 470px; top: 392px; width: 46px; z-index: 2; }
+  .sparks { position: absolute; left: 524px; top: 352px; width: 132px; z-index: 2; }
+
+  .copy { position: absolute; left: 72px; top: 118px; z-index: 4; max-width: 610px; }
+  .eyebrow {
+    font: 500 19px/1 var(--mono);
+    letter-spacing: .17em; text-transform: uppercase; color: var(--olive);
+    margin-bottom: 26px;
+  }
+  h1 {
+    font: 800 118px/.9 var(--display);
+    letter-spacing: -.045em; color: var(--ink);
+  }
+  h1 .soft { color: var(--ink-soft); font-weight: 500; }
+  .sub {
+    margin-top: 30px;
+    font: 400 25px/1.5 var(--mono);
+    color: var(--muted); max-width: 26ch; white-space: nowrap;
+  }
+  .sub strong { color: var(--ink); font-weight: 500; }
+
+  .foot {
+    position: absolute; left: 72px; bottom: 54px; z-index: 4;
+    display: flex; align-items: center; gap: 16px;
+    font: 500 23px/1 var(--mono); letter-spacing: .06em; color: var(--ink);
+  }
+  .foot .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--gold); }
+
+  /* Greek key rule, echoing the site's section dividers. */
+  .rule {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 12px; z-index: 4;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2212%22%20viewBox%3D%220%200%2020%2012%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%232e2a21%22%20stroke-width%3D%221.4%22%3E%3Cpath%20d%3D%22M0%2011h20%22%2F%3E%3Cpath%20d%3D%22M1%2011V1h14v6H7V5h4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-repeat: repeat-x; opacity: .30;
+  }
+</style>
+</head>
+<body>
+  <div class="art"><img src="../assets/hero/arm.webp" alt=""></div>
+
+  <svg class="sparks" viewBox="0 0 48 40" fill="none" aria-hidden="true">
+    <rect x="2"  y="30" width="4" height="4" fill="#dca23d"/>
+    <rect x="8"  y="26" width="4" height="4" fill="#4f672c"/>
+    <rect x="7"  y="33" width="3" height="3" fill="#4f672c"/>
+    <rect x="13" y="22" width="4" height="4" fill="#4f672c"/>
+    <rect x="14" y="29" width="3" height="3" fill="#dca23d"/>
+    <rect x="19" y="18" width="4" height="4" fill="#dca23d"/>
+    <rect x="20" y="26" width="3" height="3" fill="#4f672c"/>
+    <rect x="25" y="14" width="4" height="4" fill="#4f672c"/>
+    <rect x="26" y="22" width="3" height="3" fill="#dca23d"/>
+    <rect x="31" y="11" width="4" height="4" fill="#dca23d"/>
+    <rect x="32" y="19" width="3" height="3" fill="#4f672c"/>
+    <rect x="37" y="8"  width="4" height="4" fill="#4f672c"/>
+    <rect x="38" y="16" width="3" height="3" fill="#dca23d"/>
+    <rect x="43" y="5"  width="4" height="4" fill="#dca23d"/>
+  </svg>
+
+  <img class="cursor" src="../assets/hero/cursor.svg" alt="">
+
+  <div class="copy">
+    <div class="eyebrow">Software Engineer</div>
+    <h1>hi,<br><span>sheel</span> <span class="soft">here</span></h1>
+    <p class="sub">I focus on <strong>applied AI</strong>.</p>
+  </div>
+
+  <div class="foot"><span class="dot"></span>sheel.dev</div>
+  <div class="rule"></div>
+</body>
+</html>
