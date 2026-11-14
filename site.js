@@ -33,7 +33,7 @@ mobileNav?.querySelectorAll('a').forEach((link) => {
 document.querySelectorAll('[data-copy-email]').forEach((button) => {
   button.addEventListener('click', async () => {
     const email = button.dataset.copyEmail;
-    const state = button.querySelector('span');
+    const state = button.querySelector('[data-copy-status]');
     try {
       await navigator.clipboard.writeText(email);
       if (state) state.textContent = 'copied ✓';
@@ -47,6 +47,7 @@ document.querySelectorAll('[data-copy-email]').forEach((button) => {
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 document.querySelectorAll('[data-hero-art]').forEach((artwork) => {
   if (reducedMotion.matches) return;
+  const pointerArea = artwork.closest('.hero-stage') || artwork;
 
   // A high-polling mouse fires pointermove far more often than the screen
   // refreshes, and getBoundingClientRect forces a layout every time. Keep the
@@ -64,22 +65,37 @@ document.querySelectorAll('[data-hero-art]').forEach((artwork) => {
     artwork.style.setProperty('--pull-y', `${(y * 9).toFixed(2)}px`);
   };
 
-  artwork.addEventListener('pointermove', (event) => {
+  pointerArea.addEventListener('pointermove', (event) => {
     pointer = { x: event.clientX, y: event.clientY };
     if (!frame) frame = requestAnimationFrame(apply);
   });
 
-  artwork.addEventListener('pointerleave', () => {
+  pointerArea.addEventListener('pointerleave', () => {
     if (frame) { cancelAnimationFrame(frame); frame = 0; }
     artwork.style.setProperty('--pull-x', '0px');
     artwork.style.setProperty('--pull-y', '0px');
   });
 });
 
+document.querySelectorAll('[data-bit-trigger]').forEach((button) => {
+  const wrapper = button.closest('.build-bit-wrap');
+  const mascot = wrapper?.querySelector('object');
+  button.addEventListener('click', () => {
+    wrapper?.classList.remove('is-reacting');
+    void wrapper?.offsetWidth;
+    wrapper?.classList.add('is-reacting');
+    const hitbox = mascot?.contentDocument?.getElementById('hitbox');
+    hitbox?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  });
+  wrapper?.addEventListener('animationend', () => wrapper.classList.remove('is-reacting'));
+});
+
 document.querySelectorAll('[data-carousel]').forEach((carousel) => {
   const slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
   const thumbnails = Array.from(carousel.querySelectorAll('[data-carousel-thumb]'));
   const stageProgress = carousel.querySelector('.carousel-stage-progress');
+  const rotationToggle = carousel.querySelector('[data-carousel-toggle]');
+  const rotationLabel = carousel.querySelector('[data-carousel-toggle-label]');
   const interval = Number(carousel.dataset.interval) || 6700;
   let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains('is-active')));
   let timer;
@@ -87,6 +103,20 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
   // Naming the holds stops one of them resuming while another still wants it
   // paused -- returning to the tab used to restart autoplay under a focused slide.
   const holds = new Set();
+
+  const syncPausedState = () => {
+    const motionOff = reducedMotion.matches;
+    const manuallyPaused = holds.has('user');
+    carousel.dataset.paused = String(holds.size > 0 || motionOff);
+    if (!rotationToggle) return;
+    rotationToggle.disabled = motionOff;
+    rotationToggle.setAttribute('aria-pressed', String(manuallyPaused || motionOff));
+    if (rotationLabel) {
+      rotationLabel.textContent = motionOff
+        ? 'Rotation off'
+        : manuallyPaused ? 'Resume rotation' : 'Pause rotation';
+    }
+  };
 
   const schedule = () => {
     window.clearTimeout(timer);
@@ -106,12 +136,11 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 
     thumbnails.forEach((thumbnail, index) => {
       const active = index === current;
-      thumbnail.classList.remove('is-active');
-      thumbnail.setAttribute('aria-selected', String(active));
+      thumbnail.classList.toggle('is-active', active);
+      thumbnail.setAttribute('aria-pressed', String(active));
     });
 
     void thumbnails[current]?.offsetWidth;
-    thumbnails[current]?.classList.add('is-active');
     stageProgress?.classList.remove('is-running');
     void stageProgress?.offsetWidth;
     stageProgress?.classList.add('is-running');
@@ -121,14 +150,14 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 
   const hold = (reason) => {
     holds.add(reason);
-    carousel.dataset.paused = 'true';
     window.clearTimeout(timer);
+    syncPausedState();
   };
 
   const release = (reason) => {
     holds.delete(reason);
+    syncPausedState();
     if (holds.size || reducedMotion.matches) return;
-    carousel.dataset.paused = 'false';
     show(current);
   };
 
@@ -137,9 +166,25 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
   });
 
   carousel.addEventListener('keydown', (event) => {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    if (!event.target.closest('[data-carousel-thumb]') || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
     event.preventDefault();
     show(current + (event.key === 'ArrowRight' ? 1 : -1), true);
+  });
+
+  rotationToggle?.addEventListener('click', () => {
+    if (!holds.has('user')) {
+      hold('user');
+      return;
+    }
+
+    // An explicit resume wins over the automatic focus and hover pauses while
+    // the toggle remains focused and under the pointer. A later focus move or
+    // pointer re-entry pauses again.
+    holds.delete('user');
+    holds.delete('focus');
+    holds.delete('hover');
+    syncPausedState();
+    if (!holds.size && !reducedMotion.matches) show(current);
   });
 
   carousel.addEventListener('focusin', () => hold('focus'));
@@ -161,11 +206,12 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
   });
 
   reducedMotion.addEventListener('change', () => {
-    carousel.dataset.paused = String(holds.size > 0 || reducedMotion.matches);
-    schedule();
+    window.clearTimeout(timer);
+    syncPausedState();
+    if (!holds.size && !reducedMotion.matches) show(current);
   });
 
-  if (reducedMotion.matches) carousel.dataset.paused = 'true';
+  syncPausedState();
   show(current);
 });
 

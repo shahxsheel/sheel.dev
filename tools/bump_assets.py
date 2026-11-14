@@ -37,9 +37,13 @@ def main():
         original = page.read_text(encoding="utf-8")
         updated = original
         for rel, h in hashes.items():
-            # match the reference with or without an existing ?v=...
-            pattern = re.compile(r'(["\'])' + re.escape(rel) + r'(?:\?v=[^"\']*)?\1')
-            updated = pattern.sub(lambda m: f'{m.group(1)}{rel}?v={h}{m.group(1)}', updated)
+            # Match relative and root-relative references, with or without an
+            # existing ?v=... suffix. Keep the leading slash when present.
+            pattern = re.compile(r'(["\'])(/?)' + re.escape(rel) + r'(?:\?v=[^"\']*)?\1')
+            updated = pattern.sub(
+                lambda m: f'{m.group(1)}{m.group(2)}{rel}?v={h}{m.group(1)}',
+                updated,
+            )
         if updated != original:
             page.write_text(updated, encoding="utf-8")
             changed += 1
