@@ -7,7 +7,7 @@ no dependencies. Deployed from `main` via GitHub Pages behind Cloudflare.
 
 ```
 index.html          home — hero, about, featured-work carousel, contact
-projects.html       nine project write-ups
+projects.html       eleven project write-ups
 experience.html     roles
 404.html            custom not-found page (served by Pages)
 styles.css          all screen + print styles, tokens in :root
