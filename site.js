@@ -33,12 +33,18 @@ mobileNav?.querySelectorAll('a').forEach((link) => {
 document.querySelectorAll('[data-copy-email]').forEach((button) => {
   button.addEventListener('click', async () => {
     const email = button.dataset.copyEmail;
-    const state = button.querySelector('[data-copy-status]');
+    const label = button.querySelector('[data-copy-label]');
+    const state = button.parentElement?.querySelector('[data-copy-status]');
     try {
       await navigator.clipboard.writeText(email);
-      if (state) state.textContent = 'copied ✓';
-      window.setTimeout(() => { if (state) state.textContent = 'copy'; }, 1800);
+      if (label) label.textContent = 'copied ✓';
+      if (state) state.textContent = 'Email copied to clipboard.';
+      window.setTimeout(() => {
+        if (label) label.textContent = 'copy';
+        if (state) state.textContent = '';
+      }, 1800);
     } catch {
+      if (state) state.textContent = `Opening email app for ${email}.`;
       window.location.href = `mailto:${email}`;
     }
   });
@@ -78,16 +84,11 @@ document.querySelectorAll('[data-hero-art]').forEach((artwork) => {
 });
 
 document.querySelectorAll('[data-bit-trigger]').forEach((button) => {
-  const wrapper = button.closest('.build-bit-wrap');
-  const mascot = wrapper?.querySelector('object');
+  const mascot = button.closest('.build-bit-wrap')?.querySelector('object');
   button.addEventListener('click', () => {
-    wrapper?.classList.remove('is-reacting');
-    void wrapper?.offsetWidth;
-    wrapper?.classList.add('is-reacting');
     const hitbox = mascot?.contentDocument?.getElementById('hitbox');
     hitbox?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
   });
-  wrapper?.addEventListener('animationend', () => wrapper.classList.remove('is-reacting'));
 });
 
 document.querySelectorAll('[data-carousel]').forEach((carousel) => {
