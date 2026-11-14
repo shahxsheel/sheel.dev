@@ -176,7 +176,7 @@ p { text-wrap: pretty; }
 
 .hero-art { --pull-x: 0px; --pull-y: 0px; position: relative; width: min(880px, 60vw, 74vh); aspect-ratio: 1.12 / 1; }
 .hero-layer { position: absolute; height: auto; pointer-events: none; user-select: none; -webkit-user-drag: none; }
-.hero-arm { right: -10%; top: 2%; width: 84%; -webkit-mask-image: linear-gradient(to right, #000 84%, transparent 98.5%); mask-image: linear-gradient(to right, #000 84%, transparent 98.5%); transform: translate3d(calc(var(--pull-x) * -0.3), calc(var(--pull-y) * -0.3), 0); filter: drop-shadow(0 22px 34px rgba(var(--shadow-color), .13)); animation: heroArmFloat 11s ease-in-out infinite; }
+.hero-arm { right: -10%; top: 2%; width: 84%; transform: translate3d(calc(var(--pull-x) * -0.3), calc(var(--pull-y) * -0.3), 0); filter: drop-shadow(0 22px 34px rgba(var(--shadow-color), .13)); animation: heroArmFloat 11s ease-in-out infinite; }
 .hero-cursor { left: 5%; bottom: 5%; width: 13.5%; transform-origin: 35.3% 4.2%; transform: translate3d(var(--pull-x), var(--pull-y), 0) rotate(51deg); filter: drop-shadow(0 14px 20px rgba(var(--shadow-color), .16)); animation: heroCursorFloat 7.5s ease-in-out infinite; }
 .hero-spark { left: 11.5%; top: 59%; width: 20.5%; overflow: visible; transform: translate3d(calc(var(--pull-x) * 0.5), calc(var(--pull-y) * 0.5), 0); animation: heroSparkFloat 5.5s ease-in-out infinite; }
 .hero-spark .spark { animation: sparkTwinkle 2.6s ease-in-out infinite; animation-delay: var(--d); transform-box: fill-box; transform-origin: center; }

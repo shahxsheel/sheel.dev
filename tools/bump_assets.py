@@ -12,7 +12,13 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-ASSETS = ["styles.css", "site.js", "assets/tech/tech.css", "favicon.svg"]
+ASSETS = [
+    "styles.css",
+    "site.js",
+    "assets/tech/tech.css",
+    "assets/hero/arm.webp",
+    "favicon.svg",
+]
 
 
 def digest(path):
