@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="mocha-title mocha-desc">
+  <title id="mocha-title">Mocha</title>
+  <desc id="mocha-desc">Project logo for Mocha household cloud</desc>
+  <rect width="1200" height="900" fill="#eae2d2"/>
+  <rect x="72" y="72" width="1056" height="756" rx="28" fill="#fffdf7" stroke="#2e2a21" stroke-opacity=".12" stroke-width="2"/>
+  <!-- cloud body -->
+  <path d="M430 430c-54 0-98 40-98 90 0 50 44 90 98 90h300c62 0 112-46 112-102 0-48-34-88-80-100 4-14 6-28 6-44 0-74-60-134-134-134-52 0-98 30-120 74-16-10-36-16-56-16-58 0-106 44-110 100z" fill="#4f672c"/>
+  <path d="M430 430c-54 0-98 40-98 90 0 50 44 90 98 90h300c62 0 112-46 112-102 0-48-34-88-80-100 4-14 6-28 6-44 0-74-60-134-134-134-52 0-98 30-120 74-16-10-36-16-56-16-58 0-106 44-110 100z" fill="none" stroke="#2e2a21" stroke-opacity=".08" stroke-width="4"/>
+  <!-- cup mark inside cloud -->
+  <path d="M560 430h120c18 0 32 14 32 32v48c0 40-32 72-72 72h-40c-40 0-72-32-72-72v-48c0-18 14-32 32-32z" fill="#fffdf7"/>
+  <path d="M712 452h28c22 0 40 18 40 40s-18 40-40 40h-28" fill="none" stroke="#fffdf7" stroke-width="16" stroke-linecap="round"/>
+  <path d="M590 410c8-18 18-28 28-28s20 10 28 28" fill="none" stroke="#dca23d" stroke-width="10" stroke-linecap="round"/>
+  <text x="600" y="690" text-anchor="middle" font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="92" font-weight="720" letter-spacing="0.04em" fill="#2e2a21">Mocha</text>
+  <text x="600" y="748" text-anchor="middle" font-family="DM Mono, ui-monospace, monospace" font-size="28" letter-spacing="0.18em" fill="#736b5b">HOUSEHOLD CLOUD</text>
+</svg>

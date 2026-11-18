@@ -229,3 +229,94 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     target.appendChild(still);
   });
 });
+
+document.querySelectorAll('[data-project-list]').forEach((list) => {
+  const form = list.querySelector('[data-project-filters]');
+  const rows = Array.from(list.querySelectorAll('.project-row'));
+  const status = list.querySelector('[data-filter-status]');
+  const empty = list.querySelector('[data-filter-empty]');
+  const selects = form ? Array.from(form.querySelectorAll('select[data-filter]')) : [];
+  if (!form || !rows.length) return;
+
+  const splitMeta = (value) => (value || '').split(',').map((part) => part.trim()).filter(Boolean);
+
+  const fillOptions = () => {
+    const buckets = { languages: new Set(), tools: new Set(), topics: new Set() };
+    rows.forEach((row) => {
+      splitMeta(row.dataset.languages).forEach((item) => buckets.languages.add(item));
+      splitMeta(row.dataset.tools).forEach((item) => buckets.tools.add(item));
+      splitMeta(row.dataset.topics).forEach((item) => buckets.topics.add(item));
+    });
+
+    selects.forEach((select) => {
+      const key = select.dataset.filter;
+      const values = Array.from(buckets[key] || []).sort((a, b) => a.localeCompare(b));
+      const current = select.value;
+      select.querySelectorAll('option:not([value=""])').forEach((option) => option.remove());
+      values.forEach((value) => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+      });
+      if (values.includes(current)) select.value = current;
+    });
+  };
+
+  const restripe = (visible) => {
+    rows.forEach((row) => {
+      row.classList.remove('is-flipped', 'is-last-visible');
+    });
+    visible.forEach((row, index) => {
+      row.classList.toggle('is-flipped', index % 2 === 1);
+    });
+    if (visible.length) visible[visible.length - 1].classList.add('is-last-visible');
+  };
+
+  const apply = () => {
+    const active = Object.fromEntries(
+      selects.map((select) => [select.dataset.filter, select.value])
+    );
+
+    const visible = rows.filter((row) => {
+      const match = (key) => !active[key] || splitMeta(row.dataset[key]).includes(active[key]);
+      return match('languages') && match('tools') && match('topics');
+    });
+
+    rows.forEach((row) => {
+      row.hidden = !visible.includes(row);
+    });
+
+    restripe(visible);
+
+    if (status) {
+      status.textContent = `Showing ${visible.length} of ${rows.length} project${rows.length === 1 ? '' : 's'}`;
+    }
+    if (empty) empty.hidden = visible.length > 0;
+  };
+
+  const revealHash = () => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const target = rows.find((row) => row.id === id);
+    if (!target) return;
+    if (target.hidden || selects.some((select) => select.value)) {
+      selects.forEach((select) => { select.value = ''; });
+      apply();
+    }
+    target.scrollIntoView({ block: 'start' });
+  };
+
+  fillOptions();
+  list.dataset.jsReady = '';
+  apply();
+  revealHash();
+
+  selects.forEach((select) => {
+    select.addEventListener('change', () => apply());
+  });
+  form.addEventListener('reset', () => {
+    window.requestAnimationFrame(() => apply());
+  });
+  window.addEventListener('hashchange', revealHash);
+});

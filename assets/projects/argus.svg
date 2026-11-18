@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="argus-title argus-desc">
+  <title id="argus-title">ARGUS</title>
+  <desc id="argus-desc">A symmetrical olive eye above the ARGUS driver monitoring wordmark.</desc>
+  <rect width="1200" height="900" rx="32" fill="#fffdf7"/>
+  <path d="M350 360Q600 80 850 360Q600 640 350 360Z" fill="none" stroke="#4f672c" stroke-width="18" stroke-linejoin="round"/>
+  <circle cx="600" cy="360" r="68" fill="#2e2a21"/>
+  <circle cx="620" cy="340" r="12" fill="#dca23d"/>
+  <text x="600" y="620" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700" letter-spacing="12" fill="#2e2a21">ARGUS</text>
+  <text x="600" y="686" text-anchor="middle" font-family="ui-monospace, monospace" font-size="28" letter-spacing="5" fill="#736b5b">DRIVER MONITORING</text>
+</svg>

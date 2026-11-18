@@ -1,28 +1,183 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Eleven systems by Sheel Shah spanning AI infrastructure, real-time robotics, edge computer vision, public safety, offline mesh networking, and product engineering."><meta name="theme-color" content="#f6f1e6">
-  <title>Projects | Sheel Shah</title><link rel="icon" href="favicon.svg?v=9f68867b" type="image/svg+xml"><link rel="canonical" href="https://sheel.dev/projects.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sheel Shah"><meta property="og:title" content="Projects — Sheel Shah"><meta property="og:description" content="Eleven systems by Sheel Shah spanning AI infrastructure, real-time robotics, edge computer vision, public safety, offline mesh networking, and product engineering."><meta property="og:url" content="https://sheel.dev/projects.html"><meta property="og:image" content="https://sheel.dev/assets/og/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="A cream card reading “hi, sheel here” beside a Renaissance fresco hand reaching toward a pixel-art cursor"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=DM+Mono:wght@400;500&amp;family=Silkscreen:wght@700&amp;display=swap"><link rel="stylesheet" href="styles.css?v=493acbab"><script defer src="site.js?v=444520b8"></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Projects by Sheel Shah spanning AI tools, robotics, public safety, embedded systems, and UCSD systems programming coursework."><meta name="theme-color" content="#f6f1e6">
+  <title>Projects | Sheel Shah</title><link rel="icon" href="favicon.svg?v=9f68867b" type="image/svg+xml"><link rel="canonical" href="https://sheel.dev/projects.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Sheel Shah"><meta property="og:title" content="Projects — Sheel Shah"><meta property="og:description" content="Projects by Sheel Shah spanning AI tools, robotics, public safety, embedded systems, and UCSD systems programming coursework."><meta property="og:url" content="https://sheel.dev/projects.html"><meta property="og:image" content="https://sheel.dev/assets/og/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="A cream card reading “hi, sheel here” beside a Renaissance fresco hand reaching toward a pixel-art cursor"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=DM+Mono:wght@400;500&amp;family=Silkscreen:wght@700&amp;display=swap"><link rel="stylesheet" href="styles.css?v=85a3d264"><script defer src="site.js?v=6a3fb24c"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html" aria-label="Sheel Shah, home"><span class="brand-mark">SS</span><span class="brand-name">SHEEL SHAH</span></a><nav class="desktop-nav" aria-label="Primary"><a href="projects.html" aria-current="page">Projects</a><a href="experience.html">Experience</a></nav><a class="resume-link" href="https://drive.google.com/file/d/1XOWkwlHtZuW1af7tEsaFfw5dud0yvwfT/view" target="_blank" rel="noreferrer">Resume</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation"><span></span></button></div><nav class="mobile-nav" id="mobile-navigation" data-open="false" aria-label="Mobile"><div class="mobile-nav-links"><a href="projects.html" aria-current="page">Projects</a><a href="experience.html">Experience</a><a href="https://drive.google.com/file/d/1XOWkwlHtZuW1af7tEsaFfw5dud0yvwfT/view" target="_blank" rel="noreferrer">Resume</a></div></nav></header>
-  <!-- Screenshots: drop <img src="assets/projects/NAME.webp" alt="..."> inside a .project-image-slot to fill it. -->
   <main id="main">
-    <section class="page-hero projects-hero"><div class="container"><p class="eyebrow">Projects</p><h1 class="section-title">Built past the happy path.</h1><p class="section-intro">Eleven systems spanning AI infrastructure, real-time robotics, edge computer vision, public safety, offline mesh networking, and product engineering.</p></div></section>
-    <section class="project-list"><div class="container">
-      <article class="project-row" id="accordion"><div class="project-heading"><h2>Accordion<small>Context management for AI coding agents</small></h2></div><div class="project-image-slot"><img src="assets/projects/accordion.webp" alt="Accordion’s context map, showing an agent’s context window as foldable blocks" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Turns an agent’s context window into a live grid of reversible foldable blocks. Added the WebSocket Conductor, system-prompt visibility and budgeting, Windows release CI, and fixes across the relevance pipeline.</p><span class="project-metric">746/746 tests · 200+ GitHub stars</span><div class="tags"><span class="tag">TypeScript</span><span class="tag">Svelte</span><span class="tag">Rust / Tauri</span><span class="tag">Python</span><span class="tag">WebSocket</span></div><div class="project-links"><a href="https://github.com/a-Fig/Accordion" target="_blank" rel="noreferrer">Repo ↗</a><a href="https://get-accordion.dev/" target="_blank" rel="noreferrer">Live ↗</a></div></div></article>
-      <article class="project-row" id="hotpath"><div class="project-heading"><h2>Hotpath<small>A JIT compiler for browser agents</small></h2></div><div class="project-image-slot"><img src="assets/projects/hotpath.webp" alt="Hotpath’s dashboard right after a deopt at step 1, comparing a 5.9-second interpreted run with a 144-millisecond compiled one" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Records what an LLM browser agent does and compiles a repeated trace into guarded Playwright code with no LLM in the loop. When the site changes and a guard fails, it deoptimizes at that exact step, lets the model finish from the live page, and splices the new steps into the next version.</p><span class="project-metric">137 ms vs 6.87 s p50 · $0 per compiled run</span><div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Claude API</span><span class="tag">FastAPI</span><span class="tag">SSE</span></div><div class="project-links"><a href="https://github.com/shahxsheel/Compiled-16" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="temper"><div class="project-heading"><h2>Temper<small>Evaluation and remediation for AI deployments</small></h2></div><div class="project-image-slot"><img src="assets/projects/temper.webp" alt="Temper’s completed evaluation view, comparing a harness run against a bare-model baseline" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Tests the full harness around a model, compares it with a bare-model baseline, then generates patches. Built the live dashboard and multi-session rooms and carried the work through four review rounds.</p><span class="project-metric">Tool accuracy 31 → 79 · adherence 44 → 82</span><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini</span><span class="tag">LLM-as-judge</span></div><div class="project-links"><a href="https://github.com/aadityad12/Temper" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="simplyapply"><div class="project-heading"><h2>SimplyApply<small>Truthful internship and resume workflow</small></h2></div><div class="project-image-slot"><img src="assets/projects/simplyapply.webp" alt="SimplyApply’s quick-apply screen" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Open-source internship tracking and tailoring with a code-enforced no-fabrication guardrail. Includes four LLM adapters, job-board connectors, ATS review, caching, and deterministic PDF/DOCX generation.</p><span class="project-metric">85 automated backend tests</span><div class="tags"><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">Docker</span></div><div class="project-links"><a href="https://github.com/shahxsheel/simply-apply" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="signal"><div class="project-heading"><h2>Clear Dispatch<small>Human-in-the-loop wildfire 911 support</small></h2></div><div class="project-image-slot"><img src="assets/projects/signal.webp" alt="Clear Dispatch’s operator console during assisted wildfire operations" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Four coordinated AI agents monitor, triage, route, and brief behind a human dispatcher. Built the complete real-time operator dashboard, WebSocket state architecture, live call transcription, voice integration, mapping, and audit controls.</p><span class="project-metric">8 live message types · 8 vulnerability zones</span><div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">FastAPI</span><span class="tag">WebSocket</span><span class="tag">Leaflet</span></div><div class="project-links"><a href="https://github.com/aadityad12/Clear-Dispatch" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="cura"><div class="project-heading"><h2>Cura<small>AI-powered robotic feeding assistant</small></h2></div><div class="project-image-slot"><img src="assets/projects/cura.webp" alt="Cura's Piper robotic arm reaching toward a plate on a table, gripper open" loading="lazy" decoding="async" width="1200" height="877"></div><div class="project-detail"><p>Controls a Piper arm over CAN bus through a FastAPI state machine. Built macOS CAN support, the vision-to-arm bridge, Orbbec depth integration, and the 100Hz control loop required by the hardware.</p><span class="project-metric">macOS CAN stack built from scratch</span><div class="tags"><span class="tag">Python</span><span class="tag">CAN bus</span><span class="tag">FastAPI</span><span class="tag">MediaPipe</span><span class="tag">Orbbec</span></div><div class="project-links"><a href="https://github.com/shahxsheel/cura" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row is-text-only" id="argus"><div class="project-heading"><h2>ARGUS<small>Real-time driver monitoring on a Raspberry Pi</small></h2></div><div class="project-detail"><p>Watches the driver through a Pi camera and flags eye closure, phone use, and inattention. Camera and inference run as separate processes over ZeroMQ, with YOLO26s on raw ncnn, MediaPipe eye-closure analysis, driver locking, PERCLOS scoring, and head-pose monitoring. Built in a five-person Infineon research cohort and premiered at STEM Zone 2026, with a published paper.</p><span class="project-metric">15+ FPS at sub-70ms on Raspberry Pi · 63% lower latency</span><div class="tags"><span class="tag">Python</span><span class="tag">YOLO / ncnn</span><span class="tag">MediaPipe</span><span class="tag">ZeroMQ</span><span class="tag">Raspberry Pi</span></div><div class="project-links"><a href="https://github.com/shahxsheel/driver-monitoring-system" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="echo"><div class="project-heading"><h2>Echo<small>Offline emergency alerts over Bluetooth</small></h2></div><div class="project-image-slot is-portrait"><img src="assets/projects/echo.webp" alt="Echo’s alert list on a phone, relaying National Weather Service alerts offline" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Relays National Weather Service alerts from phone to phone over BLE with no internet after the first device receives an alert. Handles chunking, reassembly, SQLite persistence, deduplication, background scans, and multilingual rendering.</p><span class="project-metric">7 hops in under 3 seconds</span><div class="tags"><span class="tag">Flutter</span><span class="tag">BLE GATT</span><span class="tag">SQLite</span><span class="tag">Python</span></div><div class="project-links"><a href="https://github.com/aadityad12/Echo" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="halo"><div class="project-heading"><h2>Halo<small>Gesture-controlled photo booth</small></h2></div><div class="project-image-slot"><img src="assets/projects/halo.webp" alt="Halo’s aura effect rendering live from a hand gesture" loading="lazy" decoding="async" width="1200" height="833"></div><div class="project-detail"><p>Maps four hand and pose gestures to real-time canvas effects. Includes one-second gesture locking, fallback controls, DPR-safe capture, watermarked PNG export, shareable QR codes, and a live performance HUD.</p><span class="project-metric">Targets ~30 FPS at 720p</span><div class="tags"><span class="tag">TypeScript</span><span class="tag">MediaPipe</span><span class="tag">Canvas</span><span class="tag">Python</span></div><div class="project-links"><a href="https://github.com/deanzahci/halo" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row" id="wizlet"><div class="project-heading"><h2>Wizlet<small>Real-time multiplayer study battle</small></h2></div><div class="project-image-slot"><img src="assets/projects/wizlet.webp" alt="A Wizlet battle turn: two players duel in a pixel-art arena while a study question is answered" loading="lazy" decoding="async" width="1200" height="938"></div><div class="project-detail"><p>Converts lecture-note PDFs into head-to-head quiz battles. Built a canvas client, room-code WebSocket server, PDF question service, synchronized round logic, combat feedback, summary, and replay flow.</p><div class="tags"><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">WebSocket</span><span class="tag">Gemini API</span></div><div class="project-links"><a href="https://github.com/shahxsheel/wizlet" target="_blank" rel="noreferrer">Repo ↗</a></div></div></article>
-      <article class="project-row is-text-only" id="mocha"><div class="project-heading"><h2>Mocha<small>Self-hosted household cloud platform</small></h2></div><div class="project-detail"><p>Runs Nextcloud, Immich, and Jellyfin on Proxmox with RAID/ZFS storage. Separates public and private ingress, adds a Tailscale-only FastAPI control plane, hotplug storage rules, and layered recovery procedures.</p><div class="tags"><span class="tag">Proxmox</span><span class="tag">ZFS</span><span class="tag">Cloudflare</span><span class="tag">Tailscale</span><span class="tag">FastAPI</span></div></div></article>
-    </div></section>
+    <section class="page-hero projects-hero"><div class="container"><p class="eyebrow">Projects</p><h1 class="section-title">Built past the happy path.</h1><p class="section-intro">AI tools, hardware, public safety, and systems programming. A mix of independent builds, team projects, and UCSD coursework.</p></div></section>
+    <section class="project-list" data-project-list>
+      <div class="container">
+        <form class="project-filters" data-project-filters aria-label="Filter projects">
+          <div class="project-filter-fields">
+            <label class="project-filter-field">
+              <span class="project-filter-label">Language</span>
+              <select name="language" data-filter="languages" aria-controls="project-results">
+                <option value="">All languages</option>
+              </select>
+            </label>
+            <label class="project-filter-field">
+              <span class="project-filter-label">Tool</span>
+              <select name="tool" data-filter="tools" aria-controls="project-results">
+                <option value="">All tools</option>
+              </select>
+            </label>
+            <label class="project-filter-field">
+              <span class="project-filter-label">Topic</span>
+              <select name="topic" data-filter="topics" aria-controls="project-results">
+                <option value="">All topics</option>
+              </select>
+            </label>
+            <button class="project-filter-reset" type="reset">Reset</button>
+          </div>
+          <p class="project-filter-status" id="filter-status" data-filter-status aria-live="polite">Showing 14 of 14 projects</p>
+        </form>
+
+        <div id="project-results">
+        <article class="project-row" id="accordion" data-languages="TypeScript,Rust,Python" data-tools="Svelte,Tauri,WebSocket" data-topics="AI,AI agents,Developer tools">
+          <div class="project-heading"><h2>Accordion<small>Context management for AI coding agents</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/accordion.webp" alt="Accordion’s context map, showing an agent’s context window as foldable blocks" loading="lazy" decoding="async" width="1200" height="833"></div>
+          <div class="project-detail">
+            <p class="project-summary">Folds coding-agent context into reversible blocks.<br>Built live coordination and context budgeting.</p>
+            <p class="project-keywords">TypeScript · Svelte · Rust · Tauri · Python · WebSocket · Context windows · Relevance scoring · Release CI</p>
+            <div class="project-links"><a href="https://github.com/a-Fig/Accordion" target="_blank" rel="noreferrer">Repo ↗</a><a href="https://get-accordion.dev/" target="_blank" rel="noreferrer">Live ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="cura" data-languages="Python" data-tools="FastAPI,CAN bus,AgileX Piper,MediaPipe,Orbbec" data-topics="Robotics,Computer vision,Embedded systems">
+          <div class="project-heading"><h2>Cura<small>AI-powered robotic feeding assistant</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/cura.webp" alt="Cura's Piper robotic arm reaching toward a plate on a table, gripper open" loading="lazy" decoding="async" width="1200" height="877"></div>
+          <div class="project-detail">
+            <p class="project-summary">Guides a robotic arm through feeding tasks.<br>Connects camera input to real-time arm control.</p>
+            <p class="project-keywords">Python · FastAPI · CAN bus · macOS CAN stack · AgileX Piper · MediaPipe · Orbbec depth · Waypoint replay · 100 Hz control</p>
+            <div class="project-links"><a href="https://github.com/shahxsheel/cura" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="argus" data-languages="Python" data-tools="Raspberry Pi,YOLO,ncnn,MediaPipe,ZeroMQ" data-topics="Computer vision,Embedded systems">
+          <div class="project-heading"><h2>ARGUS<small>Real-time driver monitoring on a Raspberry Pi</small></h2></div>
+          <div class="project-image-slot is-logo"><img src="assets/projects/argus.svg" alt="ARGUS project logo" loading="lazy" decoding="async" width="1200" height="900"></div>
+          <div class="project-detail">
+            <p class="project-summary">Detects driver distraction on a Raspberry Pi.<br>Combines phone, eye, and head-pose tracking.</p>
+            <p class="project-keywords">Python · Raspberry Pi · YOLO · ncnn · MediaPipe · ZeroMQ · Driver locking · PERCLOS · Risk scoring · Edge inference</p>
+            <div class="project-links"><a href="https://github.com/shahxsheel/driver-monitoring-system" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="firstlink" data-languages="TypeScript,SQL" data-tools="Next.js,PostgreSQL,Neon,Gemini,ElevenLabs" data-topics="AI,Public safety,Web apps">
+          <div class="project-heading"><h2>FirstLink<small>Incident context and community response</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/firstlink.webp" alt="FirstLink coordinator console showing a staged incident briefing, reports, and volunteer coordination" loading="lazy" decoding="async" width="1200" height="900"></div>
+          <div class="project-detail">
+            <p class="project-summary">Connects witnesses, dispatchers, and volunteers.<br>Turns incident reports into shared context.</p>
+            <p class="project-keywords">Next.js · TypeScript · PostgreSQL · Neon · Gemini · ElevenLabs · Incident briefs · Voice notes · Volunteer coordination</p>
+            <div class="project-links"><a href="https://github.com/shahxsheel/sandhacksF26" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="ohmni" data-languages="Python,JavaScript,C++" data-tools="Arduino Uno,ESP32,Gemma,Ollama,Monaco" data-topics="AI,Education,Embedded systems">
+          <div class="project-heading"><h2>Ohmni<small>AI teaching assistant for electronics labs</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/ohmni.webp" alt="Ohmni voltage-divider lab in simulation mode, with probe readings, wiring instructions, and circuit diagram" loading="lazy" decoding="async" width="1200" height="900"></div>
+          <div class="project-detail">
+            <p class="project-summary">Helps students debug circuits and embedded code.<br>Combines live readings, photos, and compiler output.</p>
+            <p class="project-keywords">Python · Arduino Uno · ESP32 · Gemma · Ollama · Monaco · Serial telemetry · Circuit diagnostics · Compile and upload · Voice</p>
+            <div class="project-links"><a href="https://github.com/ASM-79/HACKTOBER_ASM_SS" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="temper" data-languages="Python" data-tools="FastAPI,Gemini" data-topics="AI,Developer tools,Web apps">
+          <div class="project-heading"><h2>Temper<small>Evaluation and remediation for AI deployments</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/temper.webp" alt="Temper’s completed evaluation view, comparing a harness run against a bare-model baseline" loading="lazy" decoding="async" width="1200" height="833"></div>
+          <div class="project-detail">
+            <p class="project-summary">Evaluates the harness around an AI model.<br>Compares a baseline and proposes fixes.</p>
+            <p class="project-keywords">Python · FastAPI · Gemini · LLM evaluation · LLM-as-judge · Remediation · Live dashboard · Shared sessions</p>
+            <div class="project-links"><a href="https://github.com/aadityad12/Temper" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="signal" data-languages="TypeScript,Python" data-tools="React,FastAPI,WebSocket,Leaflet" data-topics="AI,AI agents,Public safety,Web apps">
+          <div class="project-heading"><h2>Clear Dispatch<small>Human-in-the-loop wildfire 911 support</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/signal.webp" alt="Clear Dispatch’s operator console during assisted wildfire operations" loading="lazy" decoding="async" width="1200" height="833"></div>
+          <div class="project-detail">
+            <p class="project-summary">Helps dispatchers manage wildfire calls.<br>Connects live triage, maps, and voice.</p>
+            <p class="project-keywords">React · TypeScript · FastAPI · WebSocket · Leaflet · Transcription · Voice integration · Multi-agent routing · Audit controls</p>
+            <div class="project-links"><a href="https://github.com/aadityad12/Clear-Dispatch" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="simplyapply" data-languages="TypeScript,Python" data-tools="Next.js,FastAPI,Docker" data-topics="AI,Web apps">
+          <div class="project-heading"><h2>SimplyApply<small>Truthful internship and resume workflow</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/simplyapply.webp" alt="SimplyApply’s quick-apply screen" loading="lazy" decoding="async" width="1200" height="833"></div>
+          <div class="project-detail">
+            <p class="project-summary">Tracks internships and tailors applications.<br>Keeps resume claims grounded in real experience.</p>
+            <p class="project-keywords">Next.js · TypeScript · Python · FastAPI · Docker · LLM adapters · Job boards · ATS review · PDF · DOCX</p>
+            <div class="project-links"><a href="https://github.com/shahxsheel/simply-apply" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="echo" data-languages="Dart,Python" data-tools="Flutter,BLE GATT,SQLite" data-topics="Public safety,Networking,Mobile apps">
+          <div class="project-heading"><h2>Echo<small>Offline emergency alerts over Bluetooth</small></h2></div>
+          <div class="project-image-slot is-portrait"><img src="assets/projects/echo.webp" alt="Echo’s alert list on a phone, relaying National Weather Service alerts offline" loading="lazy" decoding="async" width="1200" height="833"></div>
+          <div class="project-detail">
+            <p class="project-summary">Relays emergency alerts between nearby phones.<br>Keeps messages moving without internet.</p>
+            <p class="project-keywords">Flutter · BLE GATT · SQLite · Python · Mesh relaying · Chunking · Deduplication · Background scans · Multilingual alerts</p>
+            <div class="project-links"><a href="https://github.com/aadityad12/Echo" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="wizlet" data-languages="TypeScript" data-tools="Node.js,Vite,WebSocket,Gemini,Canvas" data-topics="AI,Education,Multiplayer,Web apps">
+          <div class="project-heading"><h2>Wizlet<small>Real-time multiplayer study battle</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/wizlet.webp" alt="A Wizlet battle turn: two players duel in a pixel-art arena while a study question is answered" loading="lazy" decoding="async" width="1200" height="938"></div>
+          <div class="project-detail">
+            <p class="project-summary">Turns lecture PDFs into multiplayer quiz duels.<br>Syncs questions and combat in real time.</p>
+            <p class="project-keywords">TypeScript · Vite · Node.js · WebSocket · Gemini API · PDF parsing · Canvas · Room codes · Round synchronization</p>
+            <div class="project-links"><a href="https://github.com/shahxsheel/wizlet" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="halo" data-languages="TypeScript,Python" data-tools="MediaPipe,Canvas" data-topics="Computer vision,Web apps">
+          <div class="project-heading"><h2>Halo<small>Gesture-controlled photo booth</small></h2></div>
+          <div class="project-image-slot"><img src="assets/projects/halo.webp" alt="Halo’s aura effect rendering live from a hand gesture" loading="lazy" decoding="async" width="1200" height="833"></div>
+          <div class="project-detail">
+            <p class="project-summary">Turns hand gestures into live photo effects.<br>Captures and shares the result from a browser.</p>
+            <p class="project-keywords">TypeScript · MediaPipe · Canvas · Python · Gesture locking · Pose tracking · PNG export · QR sharing · Performance HUD</p>
+            <div class="project-links"><a href="https://github.com/deanzahci/halo" target="_blank" rel="noreferrer">Repo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project-row" id="mocha" data-languages="Python" data-tools="Proxmox,ZFS,RAID,Nextcloud,Immich,Jellyfin,Cloudflare,Tailscale,FastAPI" data-topics="Infrastructure,Networking">
+          <div class="project-heading"><h2>Mocha<small>Self-hosted household cloud platform</small></h2></div>
+          <div class="project-image-slot is-logo"><img src="assets/projects/mocha.svg" alt="Mocha project logo" loading="lazy" decoding="async" width="1200" height="900"></div>
+          <div class="project-detail">
+            <p class="project-summary">Hosts a household cloud on my own hardware.<br>Connects private services, storage, and recovery.</p>
+            <p class="project-keywords">Proxmox · ZFS · RAID · Nextcloud · Immich · Jellyfin · Cloudflare · Tailscale · FastAPI · Backups</p>
+          </div>
+        </article>
+
+        <article class="project-row" id="seash" data-languages="C" data-tools="Unix,POSIX APIs" data-topics="Systems programming,Coursework">
+          <div class="project-heading"><h2>seash<small>UCSD CSE 29 · Unix shell</small></h2></div>
+          <div class="project-image-slot is-logo"><img src="assets/projects/seash.svg" alt="seash project logo" loading="lazy" decoding="async" width="1200" height="900"></div>
+          <div class="project-detail">
+            <p class="project-summary">Runs commands interactively or from scripts.<br>Manages background jobs and command history.</p>
+            <p class="project-keywords">C · Unix · POSIX APIs · fork · execvp · waitpid · Background jobs · Built-ins · Persistent history</p>
+          </div>
+        </article>
+
+        <article class="project-row" id="utf8-analyzer" data-languages="C" data-tools="Bitwise operations" data-topics="Systems programming,Coursework">
+          <div class="project-heading"><h2>UTF-8 Analyzer<small>UCSD CSE 29 · Systems programming</small></h2></div>
+          <div class="project-image-slot is-logo"><img src="assets/projects/utf8-analyzer.svg" alt="UTF-8 Analyzer project logo" loading="lazy" decoding="async" width="1200" height="900"></div>
+          <div class="project-detail">
+            <p class="project-summary">Inspects UTF-8 strings one codepoint at a time.<br>Parses byte sequences and extracts substrings.</p>
+            <p class="project-keywords">C · UTF-8 · Bitwise operations · Codepoints · Byte offsets · String parsing · ASCII conversion · Emoji classification</p>
+          </div>
+        </article>
+
+        </div>
+        <p class="project-filter-empty" data-filter-empty hidden>No projects match these filters.</p>
+      </div>
+    </section>
   </main>
   <footer class="site-footer greek-rule"><div class="container footer-grid"><span>Designed and built with ❤️ by Sheel</span><span><a href="mailto:shs143@ucsd.edu">Email</a> · <a href="https://github.com/shahxsheel" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://linkedin.com/in/shahxsheel" target="_blank" rel="noreferrer">LinkedIn</a></span></div></footer>
 </body>
